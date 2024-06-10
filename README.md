@@ -57,6 +57,8 @@ Write-Log -Message "The information you want in your log" -LogLevel 1
 Write-Log -Message "The information you want in your log"
 ```
 
+#### LogLevel options
+
 | Value | Color     |
 |------:|-----------|
 |  Blank| Nothing   |
