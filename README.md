@@ -5,7 +5,7 @@ This module can help you create logging in your scripts. You write **write-log "
 ![Complet view of Logfil](Images//fullPic.png?raw=true)
 
 ## Table of Contents
-- [BenLPed.ScriptLogging](#ScriptLogging)
+- [PSScriptLogging](#ScriptLogging)
 - [Install module from the PowerShell Gallery](#Install-module-from-the-PowerShell-Gallery)
   - [Import the module](Import-the-module)
   - [Update the module](Update-the-module)
