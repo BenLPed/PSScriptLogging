@@ -1,7 +1,7 @@
 
-.$psScriptRoot\Public\start-log.ps1
+.$psScriptRoot\Function\start-log.ps1
 
-.$psScriptRoot\Public\Write-log.ps1
+.$psScriptRoot\Function\Write-log.ps1
 
 # . "$psScriptRoot\Public\Start-Log.ps1"
 

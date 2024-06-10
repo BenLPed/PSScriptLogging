@@ -16,7 +16,7 @@ RootModule = 'PSScriptLogging.psm1'
     # Minor - new solutions, e.g. new cmdlets
     # Build - new features, e.g. new params
     # Revision - fixed bugs, typos, etc...
-ModuleVersion = '1.10.1.0'
+ModuleVersion = '1.10.1.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @('Desktop')
@@ -122,7 +122,11 @@ PrivateData = @{
         ReleaseNotes = '
         v1.10.1.0
         - Full Version
-'
+
+        v1.10.1.1
+        - Bug Fix
+
+        '
 
         # Prerelease string of this module
         # Prerelease = ''
