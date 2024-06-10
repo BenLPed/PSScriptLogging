@@ -16,7 +16,7 @@ This module can help you create logging in your scripts. You write **write-log "
 - [Release Notes](#Release-Notes)
 
 # Install module from the PowerShell gallery
-Install [PSScriptLogging](https://www.powershellgallery.com/packages/PSScriptLogging/1.10.1.0) from PSGallery:
+Install [PSScriptLogging](https://www.powershellgallery.com/packages/PSScriptLogging) from PSGallery:
 
 ##### Import the module
 ```PowerShell
@@ -76,5 +76,8 @@ I use CMTrace to view the .log fils, I have a copy of the program her.
 
 # Release Notes
 
-v1.10.0.7
+v1.10.1.0
 - Full Version
+
+v1.10.1.1
+- Bug fix
