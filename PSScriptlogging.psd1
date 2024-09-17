@@ -110,7 +110,7 @@ PrivateData = @{
         )
 
         # A URL to the license for this module.
-        LicenseUri = 'https://github.com/BenLPed/PSScriptLogging/blob/main/LICENSE'
+        LicenseUri = 'https://github.com/BenLPed/PSScriptLogging/blob/main/LICENSE.txt'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/BenLPed/PSScriptLogging'
