@@ -7,6 +7,7 @@ This module can help you create logging in your scripts. You write **write-log "
 ## Table of Contents
 - [PSScriptLogging](#ScriptLogging)
 - [Install module from the PowerShell Gallery](#Install-module-from-the-PowerShell-Gallery)
+  - [Install the module](Install-the-module)
   - [Import the module](Import-the-module)
   - [Update the module](Update-the-module)
 - [Usage and Examples](#Usage-and-Examples)
@@ -18,9 +19,14 @@ This module can help you create logging in your scripts. You write **write-log "
 # Install module from the PowerShell gallery
 Install [PSScriptLogging](https://www.powershellgallery.com/packages/PSScriptLogging) from PSGallery:
 
-##### Import the module
+##### Install the module
 ```PowerShell
 Install-Module -Name PSScriptLogging -Repository PSGallery -Force
+```
+
+##### Import the module
+```PowerShell
+Import-Module -Name PSScriptLogging -Repository PSGallery -Force
 ```
 
 ##### Update the module
@@ -83,3 +89,6 @@ v1.10.1.0
 
 v1.10.1.1
 - Bug fix
+
+v1.11.0.0
+- Can now read æøå in the log comment

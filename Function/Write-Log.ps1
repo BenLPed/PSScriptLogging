@@ -3,16 +3,17 @@ function Write-Log {
     
     <#
         .SYNOPSIS
-        Write a linje in your log file
+        Writes a message to the log file with a specified log level.
 
         .DESCRIPTION
-        Write in the log file. LogLevel give color, 1 is normal, 2 give the tesk  yellow back test and 3 is red.
+        The Write-Log function adds a message to the log file with a timestamp and log level.
+        It supports three log levels: 1 = NORMAL, 2 = WARNING, and 3 = ERROR.
 
         .PARAMETER Message
-        The message that go to the log files
+        The message to be logged.
 
         .PARAMETER LogLevel
-        1 = Normal (By Default), 2 = Yellow Bagground text, 3 = Red bagground text
+        1 = Info (By Default), 2 = Warning, 3 = Error
 
         .INPUTS
         Description of objects that can be piped to the script.
@@ -33,36 +34,50 @@ function Write-Log {
         Write-Log "Fail in try { } Foreach () ....." 3
 
         .LINK
-        Online version: 
-
-        .LINK
         Detail on what the script does, if this is needed.
 
         .NOTES
         Author: Benni Ladevig Pedersen
-        Date: Juli 07,2021
+        Date: January 20,2025
     #>
 
 
     [CmdletBinding()]
     param (
-        [Parameter(Position=0, Mandatory=$true)]
+        [Parameter(Position = 0, Mandatory = $true)]
         [string]$Message,
 
-        [Parameter(Position=1, Mandatory=$false)]
-        [PSDefaultValue(Help='1 = Normal, 2 = yellow (Warning), 3 = Red (ERROR)')]
+        [Parameter(Mandatory = $false)]
+        [Parameter(Position = 1)]
+        [PSDefaultValue(Help='1 = Info, 2 = Warning, 3 = ERROR')]
         [ValidateSet(1, 2, 3)]
         [int]$LogLevel = 1
     )
 
+
     $TimeGenerated = "$(Get-Date -Format HH:mm:ss).$((Get-Date).Millisecond)+000"
-    
     $LineFormat = $Message, $TimeGenerated, (Get-Date -Format MM-dd-yyyy), "$("$env:COMPUTERNAME.$env:USERDNSDOMAIN" | Split-Path -Leaf) - $($MyInvocation.ScriptName | Split-Path -Leaf):$($MyInvocation.ScriptLineNumber)", `
     $([System.Security.Principal.WindowsIdentity]::GetCurrent().Name), $LogLevel, $($pid)
-
     $Line = '<![LOG[{0}]LOG]!><time="{1}" date="{2}" component="{3}" context="{4}" type="{5}" thread="{6}" file="" >'
 
     $AddLine = $Line -f $LineFormat
 
-    Add-Content -Value $AddLine -Path $ScriptLogFilePath
+    # Add-Content -Value $AddLine -Path $ScriptLogFilePath -Encoding UTF8
+    # Optimering: Brug StreamWriter i stedet for Add-Content
+    try {
+        $stream = [System.IO.StreamWriter]::new($ScriptLogFilePath, $true, [System.Text.Encoding]::UTF8)
+        $stream.WriteLine($AddLine)
+    } catch {
+        Write-Error "Kunne ikke skrive til logfilen: $_"
+    } finally {
+        $stream.Close()
+        $stream.Dispose()
+    }
 }
+
+# // TODO: Test om dette gør noget for Scriptet
+#   $TimeGenerated = "$(Get-Date -Format HH:mm:ss).$((Get-Date).Millisecond)+000"
+#    $Component = "$("$env:COMPUTERNAME.$env:USERDNSDOMAIN" | Split-Path -Leaf) - $($MyInvocation.ScriptName | Split-Path -Leaf):$($MyInvocation.ScriptLineNumber)"
+#    $Context = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+#    $LineFormat = $Message, $TimeGenerated, (Get-Date -Format MM-dd-yyyy), $Component, $Context, $LogLevel, $pid
+#    $Line = '<![LOG[{0}]LOG]!><time="{1}" date="{2}" component="{3}" context="{4}" type="{5}" thread="{6}" file="" >'
