@@ -47,11 +47,9 @@ function Write-Log {
         [Parameter(Position = 0, Mandatory = $true)]
         [string]$Message,
 
-        [Parameter(Mandatory = $false)]
         [Parameter(Position = 1)]
-        [PSDefaultValue(Help='1 = Info, 2 = Warning, 3 = ERROR')]
-        [ValidateSet(1, 2, 3)]
-        [int]$LogLevel = 1
+        [ValidateSet(1, 2, 3)] 
+        [int]$LogLevel = 1 # 1 = Info, 2 = Warning, 3 = ERROR
     )
 
 
@@ -62,17 +60,7 @@ function Write-Log {
 
     $AddLine = $Line -f $LineFormat
 
-    # Add-Content -Value $AddLine -Path $ScriptLogFilePath -Encoding UTF8
-    # Optimering: Brug StreamWriter i stedet for Add-Content
-    try {
-        $stream = [System.IO.StreamWriter]::new($ScriptLogFilePath, $true, [System.Text.Encoding]::UTF8)
-        $stream.WriteLine($AddLine)
-    } catch {
-        Write-Error "Kunne ikke skrive til logfilen: $_"
-    } finally {
-        $stream.Close()
-        $stream.Dispose()
-    }
+    Add-Content -Value $AddLine -Path $ScriptLogFilePath -Encoding UTF8
 }
 
 # // TODO: Test om dette gør noget for Scriptet
