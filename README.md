@@ -26,7 +26,7 @@ Install-Module -Name PSScriptLogging -Repository PSGallery -Force
 
 ##### Import the module
 ```PowerShell
-Import-Module -Name PSScriptLogging -Repository PSGallery -Force
+Import-Module -Name PSScriptLogging -Force
 ```
 
 ##### Update the module
