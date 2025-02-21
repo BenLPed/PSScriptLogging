@@ -7,9 +7,9 @@ This module can help you create logging in your scripts. You write **write-log "
 ## Table of Contents
 - [PSScriptLogging](#ScriptLogging)
 - [Install module from the PowerShell Gallery](#Install-module-from-the-PowerShell-Gallery)
-  - [Install the module](Install-the-module)
-  - [Import the module](Import-the-module)
-  - [Update the module](Update-the-module)
+  - [Install the module](#Install-the-module)
+  - [Import the module](#Import-the-module)
+  - [Update the module](#Update-the-module)
 - [Usage and Examples](#Usage-and-Examples)
   - [Start-Log](#Start-Log)
   - [Write-Log](#Write-Log)
