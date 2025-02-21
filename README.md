@@ -13,6 +13,7 @@ This module can help you create logging in your scripts. You write **write-log "
 - [Usage and Examples](#Usage-and-Examples)
   - [Start-Log](#Start-Log)
   - [Write-Log](#Write-Log)
+  - [LogLevel options](#LogLevel-options)
 - [Software to view the .log fil](#Software-to-view-the-.log-fil)
 - [Release Notes](#Release-Notes)
 
