@@ -16,7 +16,7 @@ RootModule = 'PSScriptLogging.psm1'
     # Minor - new solutions, e.g. new cmdlets
     # Build - new features, e.g. new params
     # Revision - fixed bugs, typos, etc...
-ModuleVersion = '1.11.0.0'
+ModuleVersion = '1.20.0.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @('Desktop')
@@ -31,7 +31,7 @@ Author = 'Benni Ladevig Pedersen'
 CompanyName = ''
 
 # Copyright statement for this module
-Copyright = '(c) 2024 Benni Ladevig Pedersen. All rights reserved.'
+Copyright = '(c) 2025 Benni Ladevig Pedersen. All rights reserved.'
 
 # Description of the functionality provided by this module
 Description = 'This module can help you create logging in your scripts. You can follow along live, which makes it easy to see what is happening. It also records which user runs the script, which line of the script is executed and the time. So if something goes wrong, it s easy to find out what went wrong.
@@ -120,14 +120,20 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = '
-        v1.10.1.0
-        - Full Version
+        v1.12.0.0
+        - Documentation update and code optimase
 
-        v1.10.1.1
-        - Bug Fix
+        v1.11.0.1
+        - Bug Fix - Can not read æøå in the log comment
 
         v1.11.0.0
         - Can now read æøå in the log comment
+        
+        v1.10.1.1
+        - Bug Fix
+
+        v1.10.1.0
+        - Full Version
         '
 
         # Prerelease string of this module

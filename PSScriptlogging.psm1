@@ -1,10 +1,7 @@
+# Indlæs public/private automatisk
+Get-ChildItem -Path (Join-Path $PSScriptRoot 'Private') -Filter *.ps1 | ForEach-Object { . $_.FullName }
+Get-ChildItem -Path (Join-Path $PSScriptRoot 'Public')  -Filter *.ps1 | ForEach-Object { . $_.FullName }
 
-.$psScriptRoot\Function\start-log.ps1
-
-.$psScriptRoot\Function\Write-log.ps1
-
-# . "$psScriptRoot\Public\Start-Log.ps1"
-
-# . "$psScriptRoot\Public\Write-Log.ps1"
-
-# Export-ModuleMember -Function 'Start-Log', 'Write-Log'
+# Eksporter kun Public-funktioner
+$public = (Get-ChildItem (Join-Path $PSScriptRoot 'Public') -Filter *.ps1).BaseName
+Export-ModuleMember -Function $public

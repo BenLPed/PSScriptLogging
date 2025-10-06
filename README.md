@@ -93,3 +93,6 @@ v1.10.1.1
 
 v1.11.0.0
 - Can now read æøå in the log comment
+
+v1.11.0.1
+- Bug fix - Can not read æøå in the log comment
